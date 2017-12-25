@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 20171225112520) do
     t.string "city"
     t.string "address"
     t.string "birth_date"
-    t.string "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

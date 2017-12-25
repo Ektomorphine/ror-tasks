@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# require './spec/factories/author.rb'
+
+20.times { FactoryBot.create(:author) }
+10.times { FactoryBot.create(:article) } 
