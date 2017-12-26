@@ -4,12 +4,10 @@ FactoryBot.define do
     email { Faker::Internet.email }
     city { Faker::Address.city }
     address { Faker::Address.street_name }
-    birth_date { Faker::Date.birthday(20,40) }
+    birth_date { Faker::Date.birthday(20, 40) }
 
-    factory :author_with_article do 
-      after (:create) do |author, evaluator|
-        author.articles << FactoryBot.create(:article)
-      end
-    end
+    after(:create) do |author|
+      author.articles << FactoryBot.create_list(:article, rand(10), author: author)
+    end          
   end
 end
