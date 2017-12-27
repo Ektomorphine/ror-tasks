@@ -1,0 +1,13 @@
+<h2> List of articles </h2>
+<% @articles.each do |article| %>
+  <p>
+    <%= link_to article.title, article_path(article) %>
+    <%= article.author.name %>
+    <% article.tags.each do |tag| %>
+      <div class="tag">
+        <%= link_to tag.name, tag_path(tag) %>
+      </div>
+    <% end %>
+  </p>
+<% end %>
+<%= will_paginate %>

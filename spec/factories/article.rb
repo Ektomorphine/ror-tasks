@@ -1,7 +1,7 @@
 FactoryBot.define do 
   factory :article do
     title { Faker::ChuckNorris.fact }
-    text { Faker::Lorem.paragraphs }
+    text { Faker::Lorem.paragraph(20) }
     author
 
     after(:create) do |article|

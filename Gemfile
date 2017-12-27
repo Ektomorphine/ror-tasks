@@ -54,6 +54,7 @@ group :development do
   gem 'rspec-rails'
   gem 'pry'
   gem 'annotate'
+  gem 'will_paginate', '~> 3.1.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
