@@ -1,7 +1,9 @@
 class RemotesController < ApplicationController
   def index
     @remotes = Remote.all
-  end
+    @counter = @remotes.length
+    @pluralize =  pluralization @counter
+  end  
 
   def create
     @remote = Remote.new(remote_params)
@@ -14,4 +16,16 @@ class RemotesController < ApplicationController
   def remote_params
     params.require(:remote).permit(:text)
   end
+
+  def pluralization counter    
+    if counter == 0 or counter >= 4  
+       'запросов'
+    elsif counter >= 2 and counter <= 4
+      'запроса' 
+    else 
+      'запрос'
+
+    end
+  end
+
 end
