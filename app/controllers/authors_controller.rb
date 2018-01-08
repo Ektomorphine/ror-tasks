@@ -1,12 +1,12 @@
 class AuthorsController < ApplicationController
 
   def index
-     @authors = Author.paginate(:page => params[:page], :per_page => 10)
+     @authors = Author.paginate(page: params[:page], per_page: 10)
   end
 
   def show  
     @author = Author.find(params[:id])
-    @articles = @author.articles.order(created_at: :DESC)
+    @articles = @author.articles.includes(:tags).order(created_at: :DESC)
   end
 
 end
