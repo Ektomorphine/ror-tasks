@@ -1,20 +1,26 @@
 <div class="container">
   <div class="col left">
     <%= form_with scope: :remote, url: remotes_path do |f| %>
-      <%= f.text_field :text, placeholder: "min length 3", :class => "input"%> 
-      <%= f.submit 'Send', :style => "padding: 10px;" %>
-   <% end %>    
+      <%= f.text_field :text, placeholder: 'min length 3', class: 'input'%>
+      <%= f.submit 'Send', style: 'padding: 10px;', class: 'send-button' %>
+   <% end %>
   </div>
 
   <div class="col right"> 
-    <%= @counter %> <%= @pluralize %>
+    <span id="counter"> 
+      <%= @counter %> 
+    </span> 
+    <span id="pluralize">
+      <%= @pluralize %>        
+    </span> 
     <hr>
     <% @remotes.each do |r| %>
     <h3> 
       <%= r.text %> 
-        <span class="date"> <%= r.created_at %> </span>
-    </h3> 
-    <br>
+      <span class="date"> 
+        <%= r.created_at %> 
+      </span>
+    </h3>
     <% end %>
   </div>
 </div>

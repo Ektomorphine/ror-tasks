@@ -12,49 +12,8 @@
 
 ActiveRecord::Schema.define(version: 20171227163817) do
 
-  create_table "articles", force: :cascade do |t|
-    t.string "title"
-    t.text "text"
-    t.integer "author_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["author_id"], name: "index_articles_on_author_id"
-  end
-
-  create_table "articles_tags", id: false, force: :cascade do |t|
-    t.integer "article_id"
-    t.integer "tag_id"
-    t.index ["article_id"], name: "index_articles_tags_on_article_id"
-    t.index ["tag_id"], name: "index_articles_tags_on_tag_id"
-  end
-
-  create_table "authors", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "city"
-    t.string "address"
-    t.string "birth_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "comments", force: :cascade do |t|
-    t.string "commenter"
-    t.string "text"
-    t.integer "article_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["article_id"], name: "index_comments_on_article_id"
-  end
-
   create_table "remotes", force: :cascade do |t|
     t.text "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "tags", force: :cascade do |t|
-    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

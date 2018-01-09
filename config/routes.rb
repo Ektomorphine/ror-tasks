@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'remotes/index'
-
-  resource :remotes
+  resources :remotes
 
   root 'remotes#index'
 end

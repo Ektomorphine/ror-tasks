@@ -12,4 +12,40 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require jquery
 //= require_tree .
+
+$(document).ready(function(){
+  $('.send-button').click(function(event) {
+    event.preventDefault();    
+    var value = $('.input').val();
+    $.ajax({
+      type:'POST',
+      url:'/remotes',
+      beforeSend: beforeSend,
+      data: { remote: { text: value } },
+      dataType: 'json',
+      success: function (data) {        
+        $('.right').append(
+            '<h3>' + 
+              data.text +
+              '<span class="date">' + data.date + '</span>' + 
+            '</h3>'
+        );
+        var itemsLength = $('h3').length;
+        $('#counter').text(itemsLength);      
+        if (itemsLength == 0 || itemsLength > 4) {
+          $('#pluralize').text('запросов');
+        } else if (itemsLength >= 2 && itemsLength <= 4) {
+          $('#pluralize').text('запроса');        
+        } else $('#pluralize').text('запрос');
+      }
+    })
+  })
+})
+
+function beforeSend(xhr) {
+  xhr.setRequestHeader('X-CSRF-Token',
+    $('meta[name="csrf-token"]').attr('content')
+  )
+}
