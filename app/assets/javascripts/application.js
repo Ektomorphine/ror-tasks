@@ -39,6 +39,7 @@ $(document).ready(function(){
         } else if (itemsLength >= 2 && itemsLength <= 4) {
           $('#pluralize').text('запроса');        
         } else $('#pluralize').text('запрос');
+        $('.input').val('');
       }
     })
   })
