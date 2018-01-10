@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex: 0 0 50%;
+  justify-content: space-around;
+}
+
+.col {
+  border: 1px solid black;
+  height: 700px;    
+  margin-top: 2%;
+  width: 45%;
+  padding: 30px;  
+}
+
+.right {
+  background-color: #cfe4c4;
+  overflow: auto;
+}
+
+.left {
+  background-color: #d2bfd8;
+}
+
+.date {
+  display: inline-block;
+  float: right;
+  font-weight: 1;
+}
+
+.input {
+  width: 300px;
+  padding: 10px;
+}
