@@ -1,0 +1,30 @@
+<p>
+  <b> Author: </b> <%= @author.name %>
+</p>
+<p>
+  <b> Email: </b> <%= @author.email %>  
+</p>
+<p>
+ <b> City: </b> <%= @author.city %>  
+</p>
+<p>
+  <b> Address: </b> <%= @author.address %>  
+</p>
+<p>
+  <b> Date of birth: </b> <%= @author.birth_date %>  
+</p>
+
+<h2> List of articles </h2>
+
+<% @articles.each do |article| %>
+  <p> 
+    <%= link_to article.title, article_path(article) %>
+    <br>
+    <% article.tags.each do |tag| %>
+      <div class="tag">
+        <%= link_to tag.name, tag_path(tag) %>
+      </div>
+    <% end %>
+  </p>
+  <hr>
+<% end %> 
