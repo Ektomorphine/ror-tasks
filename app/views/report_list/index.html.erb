@@ -1,0 +1,6 @@
+<h3> List of reports </h3>
+<% @reports.each do |report| %>
+  <p>
+    <%= link_to report, report_list_path(report) %>
+  </p>
+<% end %>
