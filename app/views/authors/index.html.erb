@@ -1,0 +1,17 @@
+<h3> Authors </h3>
+<table>
+  <thead>
+    <th> Name </th>
+    <th> E-mail </th>
+  </thead>
+  <tbody>
+    <% @authors.each do |author| %>    
+      <tr> 
+        <td> <%= link_to author.name, author_path(author) %> </td>
+        <td> <%= author.email %> </td> 
+     </tr>        
+    <% end %>
+  </tbody>
+</table>
+ <hr>
+<%= will_paginate @authors %>
